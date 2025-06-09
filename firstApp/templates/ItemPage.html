@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Товар — Табуретки от Нас</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ItemPage.css' %}">
+</head>
+<body>
+
+    {% include 'includes/nav.html' %}
+    <main class="product">
+        <nav class="product__breadcrumb">
+            <a href="/" class="product__breadcrumb-link">Главная</a> ›
+            <a href="/catalog" class="product__breadcrumb-link">Каталог</a> ›
+            <span class="product__breadcrumb-current">Классическая табуретка</span>
+        </nav>
+
+        <section class="product__details">
+            <div class="product__image-wrapper">
+                <img src="https://avatars.mds.yandex.net/i?id=b922e8bef33e39c7d53522cc5493e1fd_l-5220813-images-thumbs&n=13" alt="Классическая табуретка" class="product__image">
+            </div>
+
+            <div class="product__info">
+                <h1 class="product__title">Классическая табуретка</h1>
+                <p class="product__description">
+                    Прочная и лаконичная табуретка из массива дерева, идеально подходящая для кухни, гостиной и офиса.
+                </p>
+                <span class="product__price">1500 ₽</span>
+
+                <button class="button button--primary product__button" type="button">Добавить в корзину</button>
+            </div>
+        </section>
+
+        <section class="product__additional-info">
+            <h2 class="product__subtitle">Характеристики</h2>
+            <ul class="product__specs">
+                <li class="product__spec-item"><strong>Материал:</strong> Натуральное дерево</li>
+                <li class="product__spec-item"><strong>Высота:</strong> 45 см</li>
+                <li class="product__spec-item"><strong>Вес:</strong> 3 кг</li>
+                <li class="product__spec-item"><strong>Цвет:</strong> Натуральный</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

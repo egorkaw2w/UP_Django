@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог — Табуретки от Нас</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+</head>
+<body>
+    {% include 'includes/nav.html' %}
+
+    <section class="catalog">
+        <div class="catalog__emoji">🪑</div>
+        <h1 class="catalog__title">Каталог пока пуст</h1>
+        <p class="catalog__text">Но не волнуйтесь — табуретки для вашей вечеринки мы ещё добудим!</p>
+    </section>
+</body>
+</html>

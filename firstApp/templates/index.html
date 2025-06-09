@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная — Табуретки от Нас</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    {% include 'includes/nav.html' %}
+
+    <main class="main-content">
+        <section class="intro">
+            <h1 class="intro__title">Добро пожаловать в «Табуретки от Нас»!</h1>
+            <p class="intro__text">
+                Мы создаём удобные, стильные и надёжные табуретки для вашего дома, офиса и кафе.<br>
+                Качество, комфорт и современный дизайн — наш приоритет.
+            </p>
+        </section>
+
+        <section class="products">
+            <h2 class="products__title">Наши товары</h2>
+            <ul class="products__list">
+                <li class="products__item">
+                    <img src="https://avatars.mds.yandex.net/i?id=b922e8bef33e39c7d53522cc5493e1fd_l-5220813-images-thumbs&n=13" alt="Классическая табуретка" class="products__image">
+                    <h3 class="products__name">Классическая табуретка</h3>
+                    <p class="products__description">Прочная и лаконичная табуретка из массива дерева для любого интерьера.</p>
+                    <span class="products__price">1500 ₽</span>
+                </li>
+                <li class="products__item">
+                    <img src="https://static.tildacdn.com/tild6139-3530-4230-b964-616266646634/F9941YCHUBJ8J9J.jpg" alt="Современная табуретка" class="products__image">
+                    <h3 class="products__name">Современная табуретка</h3>
+                    <p class="products__description">Минималистичный дизайн, металлический каркас и мягкое сиденье.</p>
+                    <span class="products__price">2300 ₽</span>
+                </li>
+                <li class="products__item">
+                    <img src="https://cdn1.ozone.ru/s3/multimedia-1-c/7105510704.jpg" alt="Складная табуретка" class="products__image">
+                    <h3 class="products__name">Складная табуретка</h3>
+                    <p class="products__description">Компактная модель для дома, дачи или офиса — удобно хранить и перевозить.</p>
+                    <span class="products__price">1800 ₽</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="contact-us">
+            <h2 class="contact-us__title">Свяжитесь с нами</h2>
+            <p class="contact-us__text">
+                Остались вопросы? Звоните <a href="tel:+79991234567" class="contact-us__link">+7 (999) 123-45-67</a> или пишите на <a href="mailto:info@stools.ru" class="contact-us__link">info@stools.ru</a>.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
