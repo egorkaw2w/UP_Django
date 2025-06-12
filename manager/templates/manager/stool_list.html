@@ -1,0 +1,71 @@
+{% extends 'manager/base.html' %}
+{% block title %}Табуретки{% endblock %}
+{% block content %}
+    <h1>Табуретки</h1>
+    <a href="{% url 'manager:stool_create' %}" class="btn btn-primary mb-3">Добавить табуретку</a>
+
+    <!-- Форма для поиска, фильтрации и сортировки -->
+    <form method="get" class="row g-3 mb-3">
+        <div class="col-auto">
+            <input type="text" class="form-control" name="search" value="{{ search_query }}" placeholder="Поиск по названию или описанию">
+        </div>
+        <div class="col-auto">
+            <select class="form-select" name="category">
+                <option value="all" {% if not filter_category or filter_category == 'all' %}selected{% endif %}>Все категории</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if filter_category == category.id|stringformat:"s" %}selected{% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-auto">
+            <select class="form-select" name="sort">
+                <option value="name" {% if sort_by == 'name' %}selected{% endif %}>По названию (А-Я)</option>
+                <option value="-price" {% if sort_by == '-price' %}selected{% endif %}>По цене (убыв.)</option>
+                <option value="price" {% if sort_by == 'price' %}selected{% endif %}>По цене (возр.)</option>
+                <option value="stock" {% if sort_by == 'stock' %}selected{% endif %}>По количеству</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Применить</button>
+            <a href="{% url 'manager:stool_list' %}" class="btn btn-secondary">Сброс</a>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Категория</th>
+                <th>Производитель</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Описание</th>
+                <th>Размеры</th>
+                <th>Доступность</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stool in stools %}
+            <tr>
+                <td>{{ stool.name }}</td>
+                <td>{{ stool.category.name }}</td>
+                <td>{{ stool.manufacturer.name }}</td>
+                <td>{{ stool.price }} руб.</td>
+                <td>{{ stool.stock }}</td>
+                <td>{{ stool.description|truncatechars:50 }}</td>
+                <td>{{ stool.dimensions }}</td>
+                <td>{% if stool.is_available %}Да{% else %}Нет{% endif %}</td>
+                <td>
+                    <a href="{% url 'manager:stool_update' stool.pk %}" class="btn btn-sm btn-warning">Изменить</a>
+                    <a href="{% url 'manager:stool_delete' stool.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="9">Нет табуреток</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'manager/base.html' %}
+{% block title %}Отзывы{% endblock %}
+{% block content %}
+    <h1>Отзывы</h1>
+    <a href="{% url 'manager:review_create' %}" class="btn btn-primary mb-3">Добавить отзыв</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Табуретка</th>
+                <th>Клиент</th>
+                <th>Рейтинг</th>
+                <th>Дата</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.stool.name }}</td>
+                <td>{{ review.customer.first_name }} {{ review.customer.last_name }}</td>
+                <td>{{ review.rating }}/5</td>
+                <td>{{ review.created_at }}</td>
+                <td>
+                    <a href="{% url 'manager:review_update' review.pk %}" class="btn btn-sm btn-warning">Изменить</a>
+                    <a href="{% url 'manager:review_delete' review.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Нет отзывов</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

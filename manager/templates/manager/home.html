@@ -1,0 +1,16 @@
+{% extends 'manager/base.html' %}
+{% block title %}Админка табуреток{% endblock %}
+{% block content %}
+    <h1>Добро пожаловать в админку табуреток</h1>
+    <div class="list-group">
+        <a href="{% url 'manager:category_list' %}" class="list-group-item list-group-item-action">Категории</a>
+        <a href="{% url 'manager:manufacturer_list' %}" class="list-group-item list-group-item-action">Производители</a>
+        <a href="{% url 'manager:material_list' %}" class="list-group-item list-group-item-action">Материалы</a>
+        <a href="{% url 'manager:stool_list' %}" class="list-group-item list-group-item-action">Табуретки</a>
+        <a href="{% url 'manager:customer_list' %}" class="list-group-item list-group-item-action">Клиенты</a>
+        <a href="{% url 'manager:order_list' %}" class="list-group-item list-group-item-action">Заказы</a>
+        <a href="{% url 'manager:order_item_list' %}" class="list-group-item list-group-item-action">Элементы заказов</a>
+        <a href="{% url 'manager:review_list' %}" class="list-group-item list-group-item-action">Отзывы</a>
+        <a href="{% url 'manager:news_list' %}" class="list-group-item list-group-item-action">Новости</a>
+    </div>
+{% endblock %}

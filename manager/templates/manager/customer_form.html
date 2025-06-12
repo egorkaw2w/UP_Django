@@ -1,0 +1,30 @@
+{% extends 'manager/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="first_name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ customer.first_name|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Фамилия</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ customer.last_name|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ customer.email|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Телефон</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="{{ customer.phone|default:'' }}">
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Адрес</label>
+            <textarea class="form-control" id="address" name="address">{{ customer.address|default:'' }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="{% url 'manager:customer_list' %}" class="btn btn-secondary">Отмена</a>
+    </form>
+{% endblock %}

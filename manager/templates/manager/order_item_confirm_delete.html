@@ -1,0 +1,11 @@
+{% extends 'manager/base.html' %}
+{% block title %}Удалить элемент заказа{% endblock %}
+{% block content %}
+    <h1>Удалить элемент заказа</h1>
+    <p>Вы уверены, что хотите удалить элемент заказа "{{ order_item.stool.name }} x{{ order_item.quantity }}" из заказа #{order_item.order.id}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'manager:order_item_list' %}" class="btn btn-secondary">Отмена</a>
+    </form>
+{% endblock %}

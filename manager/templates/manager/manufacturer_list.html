@@ -1,0 +1,33 @@
+{% extends 'manager/base.html' %}
+{% block title %}Производители табуреток{% endblock %}
+{% block content %}
+    <h1>Производители табуреток</h1>
+    <a href="{% url 'manager:manufacturer_create' %}" class="btn btn-primary mb-3">Добавить производителя</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Страна</th>
+                <th>Веб-сайт</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manufacturer in manufacturers %}
+            <tr>
+                <td>{{ manufacturer.name }}</td>
+                <td>{{ manufacturer.country|default:"Не указана" }}</td>
+                <td>{{ manufacturer.website|default:"Не указан" }}</td>
+                <td>
+                    <a href="{% url 'manager:manufacturer_update' manufacturer.pk %}" class="btn btn-sm btn-warning">Изменить</a>
+                    <a href="{% url 'manager:manufacturer_delete' manufacturer.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Нет производителей</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
