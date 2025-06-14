@@ -1,0 +1,25 @@
+{% load static %}
+<header class="header">
+    <div class="header__container">
+        <div class="header__logo">
+            <a href="/">
+                <img src="{% static 'images/logo.png' %}" alt="Логотип" class="header__logo-img">
+            </a>
+        </div>
+        <div class="header__nav">
+            {% include 'includes/nav.html' %}
+        </div>
+        <div class="header__auth">
+            {% if user.is_authenticated %}
+                <div class="header__user">
+                    <span class="header__username">{{ user.username }}</span>
+                    <a href="{% url 'logout' %}" class="header__auth-button">Выйти</a>
+                </div>
+            {% else %}
+                <a href="{% url 'login' %}" class="header__auth-button">Войти</a>
+                <a href="{% url 'signup' %}" class="header__auth-button header__auth-button--signup">Регистрация</a>
+            {% endif %}
+        </div>
+        <button class="header__menu-toggle" aria-label="Открыть меню">☰</button>
+    </div>
+</header>

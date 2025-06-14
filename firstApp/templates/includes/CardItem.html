@@ -1,0 +1,15 @@
+{% load static %}
+<div class="card-item">
+    {% if image_url %}
+        <img src="{{ image_url }}" alt="{{ title }}" class="card-item__image">
+    {% endif %}
+    <div class="card-item__content">
+        <h3 class="card-item__title">{{ title }}</h3>
+        {% if description %}
+            <p class="card-item__description">{{ description }}</p>
+        {% endif %}
+        {% if button_text and button_url %}
+            <a href="{{ button_url }}" class="card-item__button">{{ button_text }}</a>
+        {% endif %}
+    </div>
+</div>

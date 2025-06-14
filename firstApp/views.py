@@ -11,4 +11,4 @@ def Catalog(request):
     return render(request, 'Catalog.html')
 
 def ItemPage(request):
-    return render(request, 'ItemPage.html')
+    return render(request, 'includes/templates/ItemPage.html')
